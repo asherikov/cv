@@ -1,0 +1,418 @@
+% LaTeX file for resume
+%\documentclass[a4paper,10pt]{report}
+\documentclass[a4paper,10pt]{report}
+%\usepackage{helvetica} % uses helvetica postscript font (download helvetica.sty)
+%\usepackage{newcent}   % uses new century schoolbook postscript font
+%\setlength{\textheight}{9.5in} % increase text height to fit on 1-page
+
+\usepackage[utf8]{inputenc}
+%\usepackage[english,russian]{babel}
+\usepackage[english]{babel}
+\usepackage{url}
+\usepackage[colorlinks,urlcolor={blue}]{hyperref}
+\usepackage{color}
+\usepackage{marvosym}
+\usepackage{tabularx}
+\usepackage[backend=bibtex,sorting=ydnt,firstinits=true,maxbibnames=99]{biblatex}
+
+\usepackage{calc}
+
+\usepackage[sc]{titlesec}
+\usepackage{enumitem}
+
+\usepackage{changepage}
+
+\usepackage[top=2cm, bottom=2cm, inner=1.5cm, outer=1.5cm]{geometry}
+
+\usepackage[breakable,skins]{tcolorbox}
+
+\addbibresource{cv.bib}
+\setlength\bibitemsep{0.5\itemsep}
+%\AtEveryBibitem{\clearfield{pages}}
+
+\sloppy
+\setlist[itemize]{itemsep=0pt, topsep=0pt}
+%, leftmargin=0pt}
+
+\setcounter{secnumdepth}{0}
+
+\titlespacing{\section}{0pt}{3pt}{3pt}
+\titlespacing{\subsection}{0pt}{3pt}{0pt}
+\titlespacing{\subsubsection}{0pt}{3pt}{0pt}
+
+\setlength{\parindent}{0pt}
+
+\newcommand{\entry}[2]
+{
+    {
+        \vspace{0.2cm}
+        \bf\large
+        \begin{tabularx}{\linewidth}{@{\extracolsep{0pt}}p{2.5cm} X}
+            #1 & #2\\
+        \end{tabularx}
+        \vspace{-0.2cm}
+    }
+}
+
+\titleformat{\section}{\normalfont\fontsize{12}{15}\sc}{\thesection}{0cm}{}
+\titleformat{\subsection}{\normalfont\fontsize{10}{15}\sc}{\thesection}{0cm}{}
+
+%\include{contact_info}
+\include{contact_info.example}
+
+
+\begin{document}
+
+\begin{center}
+    {\bf \Large Alexander Sherikov}
+\end{center}
+
+\vspace{0.2cm}
+\noindent
+\begin{minipage}[t]{0.5\textwidth}
+    {\bf CONTACT INFORMATION}\\[4pt]
+    \begin{tabular}{l}
+        \myaddress \\
+    \end{tabular}\\
+    \begin{tabular}{l l}
+        \Letter~{\it e-mail}    & \myemail \\
+        \Telefon~{\it phone}    & \myphone \\ %
+    \end{tabular}
+\end{minipage}
+\hfil
+\begin{minipage}[t]{0.5\textwidth}
+    {{\bf PERSONAL INFORMATION}\\[4pt]
+    \begin{tabular}{l l}
+        {\it Website}               & \href{http://asherikov.github.com}{http://asherikov.github.com}\\
+        {\it Other}                 & \href{http://github.com/asherikov}{http://github.com/asherikov}\\
+                                    & \href{https://www.linkedin.com/in/asherikov}{https://www.linkedin.com/in/asherikov}\\
+    \end{tabular}}
+\end{minipage}
+
+\vspace{0.2cm}
+\section{Summary}
+\begin{itemize}
+    \item[]
+        I am an R\&D engineer in software and control for autonomous systems
+        with a doctoral degree in humanoid robot control and diverse
+        professional experience in general IT, software quality and
+        architecture, computational software, and robotics frameworks. In
+        particular, I've worked on design and implementation of software for
+        simulation and control of legged, wheeled, and flying robots.
+\end{itemize}
+
+
+\vspace{0.2cm}
+\section{Employment}
+\begin{adjustwidth}{0.5cm}{0pt}
+    {\bf \makebox[2.7cm][l]{2019 -- present,} Senior Autonomy Engineer (UAV)}, Sevendof, Norway\\
+        \begin{tabularx}{\linewidth}{l X}
+            \hfill $\bullet$    & Onboard software architecture, 3d mapping, simulated and field tests,
+                                  software quality, cross-compilation, deployment. [C++, ROS, CUDA/Thrust]
+        \end{tabularx}
+
+    \vspace{0.2cm}
+
+    {\bf \makebox[2.7cm][l]{2017 -- 2019} Software \& Control Engineer (humanoid robots)}, PAL Robotics, Spain\\
+        \begin{tabularx}{\linewidth}{l X}
+            \hfill $\bullet$    & Humanoid robot simulation, identification, motion planning, control;
+                                  numerical optimization. [C++, ROS]
+        \end{tabularx}
+
+    \vspace{0.2cm}
+
+    {\bf \makebox[2.7cm][l]{2016 -- 2017,} Research Engineer (humanoid robots)}, INRIA, France\\
+        \begin{tabularx}{\linewidth}{l X}
+            \hfill $\bullet$    & Development of a software framework for implementation
+                                  of optimization-based controllers for humanoid robots.
+                                  [C++]
+                                  \href{https://bip-team.github.io/humoto/}{https://bip-team.github.io/humoto/}
+        \end{tabularx}
+
+    \vspace{0.2cm}
+
+    {\bf \makebox[2.7cm][l]{2012 -- 2016,} Doctoral Student (humanoid robots)}, INRIA, France\\
+        \begin{tabularx}{\linewidth}{l X}
+            \hfill $\bullet$    & Research in model predictive control of humanoid robots for
+                                  balancing and locomotion.
+                                  [C++, MATLAB]
+        \end{tabularx}
+
+    \vspace{0.2cm}
+
+    {\bf \makebox[2.7cm][l]{2012 -- 2012,} Software Developer (UGV)}, \"Orebro University, Sweden\\
+        \begin{tabularx}{\linewidth}{l X}
+            \hfill $\bullet$    &   Implementation of a path tracking model predictive controller
+                                    with obstacle avoidance for an autonomous forklift truck.
+                                    [C++, ROS, CAN]
+        \end{tabularx}
+
+    \vspace{0.2cm}
+
+    {\bf \makebox[2.7cm][l]{2009 -- 2010,} System \& Network Administrator}, InfoLan LLC, Russia\\
+        \begin{tabularx}{\linewidth}{l X}
+            \hfill $\bullet$    &   Administration of FreeBSD servers and configuration of
+                                    networking hardware (L2 switches, Cisco Routers) of an
+                                    Internet service provider.\\
+        \end{tabularx}
+
+    \vspace{0.2cm}
+
+    {\bf \makebox[2.7cm][l]{2006 -- 2008,} IT Support Engineer}, Petrozavodsk State University, Russia \\
+        \begin{tabularx}{\linewidth}{l X}
+            \hfill $\bullet$    &   Web site support, shell scripting.\\
+        \end{tabularx}
+\end{adjustwidth}
+
+
+\vspace{0.2cm}
+\section{Personal open-source projects}
+\begin{adjustwidth}{0.5cm}{0pt}
+    \begin{tabularx}{\linewidth}{l X}
+        \hfill $\bullet$    &   Eigen-based, header-only C++ implementation of Goldfarb-Idnani dual active set
+                                algorithm for quadratic programming with double sided constraints and simple bounds:
+                                \href{https://github.com/asherikov/qpmad}{https://github.com/asherikov/qpmad}\\
+
+        \hfill $\bullet$    &   C++ reflection/serialization library supporting
+                                YAML, JSON, XML, ROS parameter server, and more:
+                                \href{https://github.com/asherikov/ariles}{https://github.com/asherikov/ariles}\\
+
+        \hfill $\bullet$    &   Real-time model predictive controller for Nao
+                                humanoid robot and specialized solvers for it:
+                                \href{http://asherikov.github.io/Projects/naowalk.html}
+                                {http://asherikov.github.io/Projects/naowalk.html} (master's project)
+    \end{tabularx}
+\end{adjustwidth}
+
+
+\vspace{0.2cm}
+\section{Education}
+\begin{adjustwidth}{0.5cm}{0pt}
+    {\bf \makebox[2.7cm][l]{2012 -- 2016,} University of Grenoble, France}\\
+    \begin{tabularx}{\linewidth}{l X}
+        {\it Degree}    & PhD in Automatic Control and Production Systems\\
+        {\it Thesis}    &   Balance preservation and task prioritization in whole
+                            body motion control of humanoid robots
+                            \href{http://asherikov.github.com/files/asherikov-phd-thesis.pdf}
+                            {http://asherikov.github.com/files/asherikov-phd-thesis.pdf}\\
+    \end{tabularx}
+
+    \vspace{0.2cm}
+
+    {\bf \makebox[2.7cm][l]{2010 -- 2012,} \"Orebro University, Sweden}\\
+    \begin{tabularx}{\linewidth}{l X}
+        {\it Degree}    & Master in Robotics and Intelligent Systems\\
+        {\it Thesis}    &   Model predictive control of a walking bipedal robot
+                            using online optimization
+                            \href{http://asherikov.github.com/files/asherikov-ms-thesis.pdf}
+                            {http://asherikov.github.com/files/asherikov-ms-thesis.pdf}\\
+    \end{tabularx}
+
+    \vspace{0.2cm}
+
+    {\bf \makebox[2.7cm][l]{2003 -- 2008,} Petrozavodsk State University, Russia}\\
+    \begin{tabularx}{\linewidth}{l X}
+        {\it Degree}    & Specialist in Information Systems and Technologies\\
+        {\it Thesis}    &   Application of multidimensional data structures
+                            for indexing of NetFlow records (in Russian)\\
+    \end{tabularx}
+
+    \vspace{0.2cm}
+
+
+\pagebreak
+    {\bf Summer schools}
+    \begin{itemize}
+        %\item Sliding-Mode Control: Theory and Applications, 07.06.2015 -- 12.06.2015, Aussois, France
+        \item Numerical Optimal Control, 04.08.2014 -- 13.08.2014, Freiburg, Germany
+    \end{itemize}
+\end{adjustwidth}
+
+
+\vspace{0.2cm}
+\section{Skills}
+\begin{adjustwidth}{0.5cm}{0pt}
+%
+\subsection{Applied mathematics}
+\begin{adjustwidth}{0.5cm}{0pt}
+    \begin{tabularx}{\linewidth}{l X}
+        {\it Linear algebra}            &   factorizations, pseudoinverses \\
+        {\it Numerical optimization}    &   quadratic programming, sequential quadratic programming,
+                                            prioritized least squares, linear complementarity problems \\
+        {\it Control}                   &   model predictive control, inverse kinematics and dynamics \\
+        {\it Modeling}                  &   rigid body modeling of robots, basics of friction and
+                                            collision modeling
+    \end{tabularx}
+\end{adjustwidth}
+
+\vspace{0.2cm}
+\subsection{Robotics}
+\begin{adjustwidth}{0.5cm}{0pt}
+    \begin{tabularx}{\linewidth}{l X}
+        {\it Frameworks}                    & ROS, Nao SDK \\
+        {\it Dynamic modeling and control}  & RBDL \\
+        {\it Simulation / visualization}    & Microsoft AirSim, Gazebo, RViz \\
+        {\it Motion planning}               & OMPL \\
+        {\it Volumetric mapping}            & OpenVDB, OctoMap \\
+        {\it UAV controllers}               & PX4, DJI \\
+        {\it Messaging}                     & protobuf, mavlink, UAVCAN, CAN \\
+        {\it Sensors}                       & lidar, GPS, ADS-B
+    \end{tabularx}
+\end{adjustwidth}
+
+\vspace{0.2cm}
+\subsection{Programming languages}
+\begin{adjustwidth}{0.5cm}{0pt}
+    \begin{tabularx}{\linewidth}{l X}
+        {\it C/C++}                 &   STL, Boost, C++XX, POSIX, pthreads\\
+        {\it Computations/CAS}      &   Octave/MATLAB, Maxima\\
+        {\it Parallel computations} &   CUDA/Thrust\\
+        {\it Other}                 &   shell scripting, python
+    \end{tabularx}
+\end{adjustwidth}
+
+\vspace{0.2cm}
+\subsection{Programming tools}
+\begin{adjustwidth}{0.5cm}{0pt}
+    \begin{tabularx}{\linewidth}{l X}
+        {\it Compilers/compiler wrappers}   & clang, gcc, nvcc, ccache, scan-build \\
+        {\it Version control systems}       & git, SVN \\
+        {\it Debugging}                     & gdb, lldb, strace \\
+        {\it Static and dynamic checks}     & gcc/clang sanitizers, cppcheck, valgrind, clang-tidy \\
+        {\it Profilers}                     & callgrind, gprof \\
+        {\it Testing}                       & googletest, googlemock, Boost UTF, ctest \\
+        {\it Build automation tools}        & catkin, colcon, cmake, make, autotools \\
+        {\it Documentation}                 & doxygen, PlantUML, graphviz \\
+        {\it Continuous integration}        & Jenkins, Travis \\
+        {\it Web-based SCM}                 & GitHub, GitLab, GForge
+    \end{tabularx}
+\end{adjustwidth}
+
+\vspace{0.2cm}
+\subsection{Unix systems administration and networking}
+\begin{adjustwidth}{0.5cm}{0pt}
+    \begin{tabularx}{\linewidth}{l X}
+        {\it Operating systems}             & FreeBSD, Ubuntu\\
+        {\it Isolation/emulation}           & docker, qemu, systemd-nspawn, VirtualBox\\
+        {\it Service management}            & systemd\\
+        {\it Computer networks}             & TCP/IP, VLAN, DHCP, DNS, SMTP, Ethernet, routing, switching\\
+        {\it Time synchronization}          & NTP, PTP\\
+        {\it Other}                         & POSIX utilities
+    \end{tabularx}
+\end{adjustwidth}
+
+\vspace{0.2cm}
+\subsection{Other}
+\begin{adjustwidth}{0.5cm}{0pt}
+    \begin{tabularx}{\linewidth}{l X}
+        {\it Quadratic Programming}         & qpOASES, QuadProg++, ipopt \\
+        {\it Linear algebra}                & Eigen\\
+        {\it Document preparation systems}  & \LaTeX \\
+        {\it 3D graphics toolkits}          & OpenSceneGraph \\
+        {\it Hardware platforms}            & Raspberry Pi, NVIDIA Jetson Xavier \\
+    \end{tabularx}
+\end{adjustwidth}
+
+\vspace{0.2cm}
+\subsection{Languages}
+\begin{adjustwidth}{0.5cm}{0pt}
+    \begin{tabularx}{\linewidth}{l X}
+        \hfill $\bullet$    & Russian (native) \\
+        \hfill $\bullet$    & English (fluent)
+    \end{tabularx}
+\end{adjustwidth}
+\end{adjustwidth}
+
+\vspace{0.2cm}
+\section{Academic activities}
+\begin{itemize}
+    \item Reviewer for IEEE T-RO, ICRA, IROS, Humanoids.
+    \item \href{https://scholar.google.fr/citations?user=yVOvGd0AAAAJ&hl=en}{Google Scholar} page.
+\end{itemize}
+
+\subsection{\hspace{0.5cm}Publications}
+\nocite{*}
+%    \begin{minipage}{\linewidth}
+    \begin{tcolorbox}[
+            breakable,
+            skin=enhanced,
+            lines before break=0,
+            after={},
+            %before={},
+            colframe=white,
+            colback=white,
+            coltitle=white,
+            colbacktitle=white,
+            width=\linewidth,
+            %toprule=0.01cm,
+            bottomrule=0cm,
+            leftrule=0cm,
+            rightrule=0cm,
+            titlerule=0cm,
+            arc=0.0cm,
+            boxsep=0cm,
+            left=1.0cm,
+            right=0.0cm,
+            toptitle=0.00cm,
+            bottom=0.00cm,
+            top=0.00cm,
+        ]
+        \printbibliography[heading=none]
+    \end{tcolorbox}
+%    \end{minipage}
+%\end{adjustwidth}
+
+\subsection{\hspace{0.5cm}Participation in research projects}
+\begin{adjustwidth}{1.0cm}{0pt}
+    {\bf \makebox[2.3cm][l]{2016 -- 2017,} COMANOID} \\
+        \begin{tabularx}{\linewidth}{l X}
+            \hfill $\bullet$    &   COMANOID ("Multi-Contact Collaborative
+                                    Humanoids in Aircraft Manufacturing")
+                                    is a RIA four-year European research
+                                    project that started in January 2015
+                                    as part of the Horizon H2020 program.\\
+            \hfill $\bullet$    &   \url{http://comanoid.cnrs.fr/project-overview}
+        \end{tabularx}
+    \vspace{0.2cm}
+
+
+    {\bf \makebox[2.3cm][l]{2012 -- 2016,} Romeo 2}\\
+        \begin{tabularx}{\linewidth}{l X}
+            \hfill $\bullet$    &   Romeo 2 project is a french research
+                                    project focusing on Romeo humanoid
+                                    robot designed by Aldebaran Robotics.\\
+            \hfill $\bullet$    &   \url{https://projetromeo.com/}
+        \end{tabularx}
+    \vspace{0.2cm}
+
+
+    {\bf \makebox[2.3cm][l]{2012 -- 2012,} SAUNA} \\
+        \begin{tabularx}{\linewidth}{l X}
+            \hfill $\bullet$    &   SAUNA is a major AASS 3-year project at
+                                    \"Orebro University aimed at achieving
+                                    international excellence in a research area of
+                                    strong industrial relevance namely,
+                                    safe autonomous navigation for
+                                    professional industrial vehicles like
+                                    forklift trucks, wheel loaders, mining
+                                    trucks etc.\\
+            \hfill $\bullet$    &   \url{https://www.oru.se/english/research/research-projects/rp/?rdb=p693}
+        \end{tabularx}
+\end{adjustwidth}
+
+
+\section{\hspace{0.5cm}Grants}
+\begin{adjustwidth}{1.0cm}{0pt}
+    {\bf \makebox[2.3cm][l]{2017, } Torres Quevedo, Spain} \\
+        \begin{tabularx}{\linewidth}{l X}
+            \hfill $\bullet$    &   Torres Quevedo Program (PTQ) - Grants for recruiting PhDs \\
+            \hfill $\bullet$    &   \url{https://www.ciencia.gob.es/stfls/eSede/Ficheros/2018/RESOLUCION_TORRES_QUEVEDO-2017-1.pdf}
+        \end{tabularx}
+\end{adjustwidth}
+
+% \vspace{0.2cm}
+%\section{References}
+%\begin{itemize}
+%    \item
+%\end{itemize}
+\end{document}
