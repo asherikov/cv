@@ -57,8 +57,8 @@
 \titleformat{\section}{\normalfont\fontsize{12}{15}\sc}{\thesection}{0cm}{}
 \titleformat{\subsection}{\normalfont\fontsize{10}{15}\sc}{\thesection}{0cm}{}
 
-%\include{contact_info}
-\include{contact_info.example}
+\include{contact_info}
+%\include{contact_info.example}
 
 
 \begin{document}
@@ -83,7 +83,7 @@
 \begin{minipage}[t]{0.5\textwidth}
     {{\bf PERSONAL INFORMATION}\\[4pt]
     \begin{tabular}{l l}
-        {\it Website}               & \href{http://asherikov.github.com}{http://asherikov.github.com}\\
+        {\it Website}               & \href{http://asherikov.github.io}{http://asherikov.github.io}\\
         {\it Other}                 & \href{http://github.com/asherikov}{http://github.com/asherikov}\\
                                     & \href{https://www.linkedin.com/in/asherikov}{https://www.linkedin.com/in/asherikov}\\
     \end{tabular}}
@@ -180,7 +180,12 @@
         \hfill $\bullet$    &   Real-time model predictive controller for Nao
                                 humanoid robot and specialized solvers for it:
                                 \href{http://asherikov.github.io/Projects/naowalk.html}
-                                {http://asherikov.github.io/Projects/naowalk.html} (master's project)
+                                {http://asherikov.github.io/Projects/naowalk.html} (master's project) \\
+
+        \hfill $\bullet$    &   ROS development environment facilitatating (cross-)compilation,
+                                testing, linting, documetation, and binary package generation:
+                                \href{https://github.com/asherikov/ccws}
+                                {https://github.com/asherikov/ccws}
     \end{tabularx}
 \end{adjustwidth}
 
@@ -283,6 +288,7 @@
         {\it Testing}                       & googletest, googlemock, Boost UTF, ctest \\
         {\it Build automation tools}        & catkin, colcon, cmake, make, autotools \\
         {\it Documentation}                 & doxygen, PlantUML, graphviz \\
+        {\it Packaging}                     & FreeBSD ports, dpkg, CloudSmith \\
         {\it Continuous integration}        & Jenkins, Travis \\
         {\it Web-based SCM}                 & GitHub, GitLab, GForge
     \end{tabularx}
