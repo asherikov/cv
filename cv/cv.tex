@@ -1,9 +1,5 @@
 % LaTeX file for resume
-%\documentclass[a4paper,10pt]{report}
 \documentclass[a4paper,10pt]{report}
-%\usepackage{helvetica} % uses helvetica postscript font (download helvetica.sty)
-%\usepackage{newcent}   % uses new century schoolbook postscript font
-%\setlength{\textheight}{9.5in} % increase text height to fit on 1-page
 
 \usepackage[utf8]{inputenc}
 %\usepackage[english,russian]{babel}
@@ -24,14 +20,24 @@
 
 \usepackage[top=2cm, bottom=2cm, inner=1.5cm, outer=1.5cm]{geometry}
 
-\usepackage[breakable,skins]{tcolorbox}
 
 \addbibresource{cv.bib}
-\setlength\bibitemsep{0.5\itemsep}
+%\setlength\bibitemsep{0.5\itemsep}
 %\AtEveryBibitem{\clearfield{pages}}
+\defbibenvironment{bibliography}
+  {\list
+     {\printtext[labelnumberwidth]{%
+        \printfield{labelprefix}\printfield{labelnumber}}}
+     {\setlength{\leftmargin}{1.5cm}%
+      \setlength{\bibhang}{1cm}%
+      \setlength{\itemsep}{-2pt}}
+     }
+  {\endlist}
+  {\item}
 
 \sloppy
-\setlist[itemize]{itemsep=0pt, topsep=0pt}
+
+\setlist[itemize]{label=$\circ$, itemsep=-1pt, topsep=0pt}
 %, leftmargin=0pt}
 
 \setcounter{secnumdepth}{0}
@@ -41,340 +47,402 @@
 \titlespacing{\subsubsection}{0pt}{3pt}{0pt}
 
 \setlength{\parindent}{0pt}
+\setlength{\parskip}{0em}
 
-\newcommand{\entry}[2]
-{
-    {
-        \vspace{0.2cm}
-        \bf\large
-        \begin{tabularx}{\linewidth}{@{\extracolsep{0pt}}p{2.5cm} X}
-            #1 & #2\\
-        \end{tabularx}
-        \vspace{-0.2cm}
-    }
-}
+\titleformat{\section}{\normalfont\fontsize{12}{15}\scshape}{\thesection}{0cm}{}
+\titleformat{\subsection}{\normalfont\fontsize{10}{15}\scshape}{\thesection}{0cm}{}
 
-\titleformat{\section}{\normalfont\fontsize{12}{15}\sc}{\thesection}{0cm}{}
-\titleformat{\subsection}{\normalfont\fontsize{10}{15}\sc}{\thesection}{0cm}{}
+\newcommand{\cvurl}[2]{\href{#1://#2}{\url{#2}}}
+\newcommand{\cventry}[3]{\textbf{\makebox[2.7cm][l]{#1 -- #2} #3}}
 
+\newenvironment{cvindent}{\begin{adjustwidth}{0.5cm}{0pt}}{\end{adjustwidth}}
+\newenvironment{cvdescription}[1][]{\begin{cvindent}\begin{description}[#1]}{\end{description}\end{cvindent}}
 
 \begin{document}
-\include{contact_info}
-%\include{contact_info.example}
+\input{contact_info}
+%\input{contact_info.example}
 
 
 \begin{center}
-    {\bf \Large Dr. Alexander Sherikov}
+    {\textbf{\Large Dr. Alexander Sherikov}}\\[4pt]
+    {Expert Autonomous Systems Software Engineer}
 \end{center}
 
 \vspace{0.15cm}
 \noindent
-\begin{minipage}[t]{0.49\textwidth}
-    {\bf CONTACT INFORMATION}\\[4pt]
+\begin{minipage}[t]{0.4\textwidth}
+    {\textbf{CONTACT INFORMATION}}\\[4pt]
     \begin{tabular}{l}
         \myaddress \\
     \end{tabular}\\
     \begin{tabular}{l l}
         \Letter~{\it e-mail}    & \myemail \\
-        \Telefon~{\it phone}    & \myphone \\ %
+        \Telefon~{\it phone}    & \myphone
     \end{tabular}
 \end{minipage}
 \hfil
-\begin{minipage}[t]{0.51\textwidth}
-    {{\bf PERSONAL INFORMATION}\\[4pt]
+\begin{minipage}[t]{0.4\textwidth}
+    {{\textbf{PERSONAL INFORMATION}}\\[4pt]
     \begin{tabular}{l l}
-        {\it Website}               & \url{http://sherikov.net}\\
-        {\it Latest CV}             & \url{https://github.com/asherikov/cv}\\
-        {\it Other}                 & \url{http://github.com/asherikov}\\
-                                    & \url{https://www.linkedin.com/in/asherikov}\\
+        {\it Website}           & \cvurl{http}{sherikov.net}\\
+        {\it Latest CV}         & \cvurl{https}{github.com/asherikov/cv}\\
+        {\it Other}             & \cvurl{http}{github.com/asherikov}\\
+                                & \cvurl{https}{linkedin.com/in/asherikov}
     \end{tabular}}
 \end{minipage}
 
-
 \vspace{0.15cm}
-\section{Summary}
+\section{Highlights}
 \begin{itemize}
-    \item[$\circ$]
-        Fullstack autonomous systems software developer with diverse experience
-        in control, mapping, planning, sensor integration, simulation,
-        reinforcement learning, deployment, telemetry collection, etc.
+    \item Fullstack autonomous systems software developer and R\&D engineer
+        with a PhD in robot control. Contributed to development of multicopters
+        (up to 40kg), ground vehicles, quadrupedal and full-size humanoid
+        robots. ROS user since 2012.
 
-    \item[$\circ$]
-        R\&D engineer with a doctoral degree in robot control, familiar with
-        numerical environments and data handling frameworks, as well as
-        development of numerical software.
+    \item Wrote code in C++/Python under Linux for more than 20 years,
+        implemented and enforced automated quality and SITL pipelines to
+        minimize the number of incidents and field trial costs.
 
-    \item[$\circ$]
-        C++/python UNIX/Linux developer with 15 years international experience
-        in general IT, networking, software quality and architecture,
-        performance optimization, project management, etc.
+    \item Over 15 years of international experience spanning 6 countries and
+        diverse environments: academic, startup, and corporate. Extensive
+        background in startups: both failed and successful, from inception
+        through product certification, from developer to lead.
 \end{itemize}
 
 
 \vspace{0.15cm}
 \section{Experience}
-\begin{adjustwidth}{0.5cm}{0pt}
-    {\bf \makebox[2.8cm][l]{2024 -- 2025} Senior Robotics Developer}, Technology Innovation Institute, UAE
-    \begin{itemize}
-        \item[$\circ$] UAV onboard software integration and development for
-            control, mapping, and motion planning. [C++, ROS2]
-    \end{itemize}
-
-    \vspace{0.15cm}
-
-    {\bf \makebox[2.8cm][l]{2022 -- 2023} Reinforcement Learning Engineer}, Keybotic, remote
-    \begin{itemize}
-        \item[$\circ$] Reinforcement learning for quadruped robot control using
-            parallel GPU-accelerated simulations. [python, ROS, IsaacGym]
-    \end{itemize}
-
-    \vspace{0.15cm}
-
-    {\bf \makebox[2.8cm][l]{2019 -- 2022} Senior Autonomy Engineer}, Sevendof, Norway
-    \begin{itemize}
-        \item[$\circ$] Responsible for UAV onboard software and quality:
-            architecture, 3d mapping, simulated and field tests, software
-            quality, cross-compilation, deployment, sensor integration. [C++,
-            ROS, CUDA/Thrust]
-        %\url{https://www.youtube.com/watch?v=JxZ-O4Rpnps}
-        %\url{https://www.youtube.com/watch?v=R63JKgDqbnE}
-        %\url{https://www.youtube.com/watch?v=07FoSaGxQ9g}
-    \end{itemize}
-
-    \vspace{0.15cm}
-
-    {\bf \makebox[2.8cm][l]{2017 -- 2019} Software \& Control Engineer}, PAL Robotics, Spain
-    \begin{itemize}
-        \item[$\circ$] Various tasks related to humanoid robot simulation,
-            identification, motion planning, control (inverse kinematics and
-            dynamics). Development of in-house rigid body simulator. [C++, ROS]
-
-        \item[$\circ$] Supported by ``Torres Quevedo Program (PTQ)'' grant \\
-            \url{https://www.ciencia.gob.es/stfls/eSede/Ficheros/2018/RESOLUCION_TORRES_QUEVEDO-2017-1.pdf}
-    \end{itemize}
-
-    \vspace{0.15cm}
-
-    {\bf \makebox[2.8cm][l]{2016 -- 2017} Research Engineer}, INRIA, France
-    \begin{itemize}
-        \item[$\circ$] Development of a software framework for implementation
-            of optimization-based controllers for humanoid robots. [C++]
-            \url{https://bip-team.github.io/humoto/}
-    \end{itemize}
-
-    \vspace{0.15cm}
-
-    {\bf \makebox[2.8cm][l]{2012 -- 2016} Doctoral Student}, INRIA, France
-    \begin{itemize}
-        \item[$\circ$] Research in model predictive control of humanoid robots
-            for balancing and locomotion. [C++, MATLAB]
-
-        \item[$\circ$] Participation in ``Horizon H2020 COMANOID''
-            (\url{https://cordis.europa.eu/project/id/645097}) research project
-            focused on development of humanoid robots and their industrial
-            applications.
-    \end{itemize}
-
-    \vspace{0.15cm}
-
-    {\bf \makebox[2.8cm][l]{2012 -- 2012} Software Developer}, \"Orebro University, Sweden
-    \begin{itemize}
-        \item[$\circ$] Implementation of a path tracking model predictive
-            controller with obstacle avoidance for an autonomous forklift
-            truck. [C++, ROS, CAN]
-
-        \item[$\circ$] Participation in ``SAUNA'' research project focused on
-            safe autonomous navigation for industrial vehicles like forklift or
-            mining trucks.
-            \url{https://www.oru.se/english/research/research-projects/rp/?rdb=p693}
-    \end{itemize}
-
-    \vspace{0.15cm}
-
-    {\bf \makebox[2.8cm][l]{2009 -- 2010} System \& Network Administrator}, InfoLan LLC, Russia
-    \begin{itemize}
-        \item[$\circ$] Administration of FreeBSD servers and configuration of
-            networking hardware of an Internet service provider.
-    \end{itemize}
-\end{adjustwidth}
-
-
-
 \vspace{0.15cm}
-\section{Personal open-source projects}
-\begin{adjustwidth}{0.5cm}{0pt}
-    \begin{tabularx}{\linewidth}{l X}
-        \hfill $\circ$  & \url{https://github.com/asherikov/qpmad}:
-                            High-performance quadratic programming solver in C++ \\
 
-        \hfill $\circ$  & \url{https://github.com/asherikov/ariles}:
-                            C++ reflection/serialization library \\
+\begin{cvindent}
+    \cventry{2024}{present}{Senior Robotics Developer}, Technology Innovation Institute, UAE
+    \begin{itemize}
+        \item Integrated and developed UAV onboard software for real-time 3D
+            mapping, and motion planning with obstacle avoidance, deploying on
+            UAV platforms in field trials.
+        \item Contributed to development of drone control stack: reviewed
+            architecture and merge requests, ensured software quality.
+    \end{itemize}
 
-        \hfill $\circ$  & \url{http://sherikov.net/Projects/naowalk.html}:
-                            walking controller for Nao humanoid robot \\
+    \vspace{0.15cm}
 
-        \hfill $\circ$  & \url{https://github.com/asherikov/ccws}:
-                            ROS development and continuous integration framework
-    \end{tabularx}
-\end{adjustwidth}
+    \cventry{2023}{2024}{Autonomy Lead}, BaseTrack, UAE
+    \begin{itemize}
+        \item Documented, maintained, and deployed existing autonomous driving
+            stack for trucks.
+        \item Supported live vehicle demonstrations including sensor
+            integration and software validation.
+    \end{itemize}
+
+    \vspace{0.15cm}
+
+    \cventry{2022}{2023}{Reinforcement Learning Engineer}, Keybotic, Norway (remote contract)
+    \begin{itemize}
+        \item Trained whole-body locomotion control policies for quadruped
+            robots using parallel GPU-accelerated IsaacGym simulations.
+        \item Deployed trained models to test-bench setup using ONNX.
+    \end{itemize}
+
+    \vspace{0.15cm}
+
+    \cventry{2019}{2022}{Senior Autonomy Engineer}, Sevendof, Norway
+    \begin{itemize}
+        \item Architected and maintained UAV onboard software stack on top of
+            various flight controllers (DJI, PX4) on a range of electric
+            (\cvurl{https}{youtu.be/07FoSaGxQ9g}) and hybrid-powered
+            (\cvurl{https}{youtu.be/R63JKgDqbnE}) multicopters.
+
+        \item Established software quality processes including static analysis,
+            automated testing, and CI pipelines, resulting in zero vehicle
+            losses due to software issues over a span of multiple years.
+
+        \item Designed and maintained software cross-compilation and deployment
+            workflow.
+
+        \item Implemented 3D volumetric mapping and sensor integration for
+            real-time environment perception and autonomous navigation.
+
+        \item Managed software team as an acting software lead.
+    \end{itemize}
+
+    \vspace{0.15cm}
+
+    \cventry{2017}{2019}{Software \& Control Engineer}, PAL Robotics, Spain
+    \begin{itemize}
+        \item Developed an in-house rigid body dynamics simulator and
+            implemented identification, motion planning, and inverse
+            kinematics/dynamics controllers for Thalos humanoid robot.
+
+        \item Supported by ``Torres Quevedo Program (PTQ)'' grant \\
+            \cvurl{https}{ciencia.gob.es/stfls/eSede/Ficheros/2018/RESOLUCION_TORRES_QUEVEDO-2017-1.pdf}
+    \end{itemize}
+
+    \vspace{0.15cm}
+
+    \cventry{2016}{2017}{Research Engineer}, INRIA, France
+    \begin{itemize}
+        \item Designed and implemented HUMOTO, a C++ software framework for
+            optimization-based whole-body controllers of humanoid robots
+            \cvurl{https}{bip-team.github.io/humoto/}
+    \end{itemize}
+
+    \vspace{0.15cm}
+
+    \cventry{2012}{2016}{Doctoral Student}, INRIA, France
+    \begin{itemize}
+        \item Developed model predictive controllers for humanoid robot
+            balancing and locomotion.
+
+        \item Participated in ``Horizon H2020 COMANID'' research project
+            (\cvurl{https}{cordis.europa.eu/project/id/645097}) focused in humanoid
+            robot applications in airplane assembly tasks.
+    \end{itemize}
+
+    \vspace{0.15cm}
+
+    \cventry{2012}{2012}{Software Developer}, \"{O}rebro University, Sweden
+    \begin{itemize}
+        \item Implemented a path-tracking model predictive controller for an
+            autonomous forklift truck.
+
+        \item Contributed to ``SAUNA'' project on safe autonomous navigation
+            for industrial vehicles.
+            \cvurl{https}{oru.se/english/research/research-projects/rp/?rdb=p693}
+    \end{itemize}
+
+    \vspace{0.15cm}
+
+    \cventry{2009}{2010}{System \& Network Administrator}, InfoLan LLC, Russia
+    \begin{itemize}
+        \item Administered FreeBSD servers and configured networking hardware
+            for an Internet service provider serving several thousand clients.
+    \end{itemize}
+\end{cvindent}
 
 
 \vspace{0.15cm}
 \section{Education}
-\begin{adjustwidth}{0.5cm}{0pt}
-    {\bf \makebox[2.3cm][l]{2012 -- 2016} University of Grenoble, France}\\
-    \begin{tabularx}{\linewidth}{l X}
-        {\it Degree}    & PhD in Automatic Control and Production Systems\\
-        {\it Thesis}    &   Balance preservation and task prioritization in whole
-                            body motion control of humanoid robots\\
-                        &   \url{https://github.com/asherikov/phd-thesis/raw/master/asherikov-phd-thesis.pdf}\\
-        \begin{minipage}{1cm}
-            {\it Summer schools}
-        \end{minipage}  & Numerical Optimal Control, 04.08.2014 -- 13.08.2014, Freiburg, Germany\\
-                        % Sliding-Mode Control: Theory and Applications, 07.06.2015 -- 12.06.2015, Aussois, France
-    \end{tabularx}
+\begin{cvindent}
+    \cventry{2012}{2016}{PhD, Automatic Control and Production Systems}
+    \begin{cvdescription}[leftmargin=!,labelwidth=1.5cm]
+        \item[Thesis] Balance preservation and task prioritization in whole
+            body motion control of humanoid robots
+            \cvurl{https}{github.com/asherikov/phd-thesis/raw/master/asherikov-phd-thesis.pdf}
+        \item[School] University of Grenoble, France
+        \item[Courses] 2015, Sliding-Mode Control: Theory and Applications, Aussois, France\\
+                       2014, Numerical Optimal Control, Freiburg, Germany
+    \end{cvdescription}
 
     \vspace{0.15cm}
-
-    {\bf \makebox[2.3cm][l]{2010 -- 2012} \"Orebro University, Sweden}\\
-    \begin{tabularx}{\linewidth}{l X}
-        {\it Degree}    & Master in Robotics and Intelligent Systems\\
-        {\it Thesis}    &   Model predictive control of a walking bipedal robot
-                            using online optimization\\
-                        &   \url{https://github.com/asherikov/ms-thesis/raw/master/asherikov-ms-thesis.pdf}\\
-    \end{tabularx}
+    \cventry{2010}{2012}{MS, Robotics and Intelligent Systems}
+    \begin{cvdescription}[leftmargin=!,labelwidth=1.5cm]
+        \item[Thesis] Model predictive control of a walking bipedal robot
+            using online optimization\\
+            \cvurl{https}{github.com/asherikov/ms-thesis/raw/master/asherikov-ms-thesis.pdf}
+        \item[School] \"{O}rebro University, Sweden
+    \end{cvdescription}
 
     \vspace{0.15cm}
+    \cventry{2003}{2008}{Engineer (MS), Information Systems and Technologies}
+    \begin{cvdescription}[leftmargin=!,labelwidth=1.5cm]
+        \item[Thesis] Application of multidimensional data structures for
+            indexing of NetFlow records
+        \item[School] Petrozavodsk State University, Russia
+    \end{cvdescription}
+\end{cvindent}
 
-    {\bf \makebox[2.3cm][l]{2003 -- 2008} Petrozavodsk State University, Russia}\\
-    \begin{tabularx}{\linewidth}{l X}
-        {\it Degree}    & Specialist in Information Systems and Technologies\\
-        {\it Thesis}    &   Application of multidimensional data structures
-                            for indexing of NetFlow records\\
-    \end{tabularx}
-\end{adjustwidth}
+
+\vspace{0.15cm}
+\section{Personal open-source projects}
+
+\begin{cvindent}
+\subsection{Software architecture, design, conventions}
+    \begin{itemize}
+        \item \cvurl{https}{github.com/asherikov/codeincomplete}: Coding
+            conventions tailored for robotics and autonomous systems
+       \item \cvurl{https}{github.com/asherikov/hiearch} [python]: Diagram
+           generator with hierarchical decomposition and views
+    \end{itemize}
+
+\subsection{Development tools}
+    \begin{itemize}
+        \item \cvurl{https}{github.com/asherikov/ccws} [sh, make]: ROS
+            development and CI framework for cross-compilation, testing,
+            linting, documentation, and binary package deployment
+        \item \cvurl{https}{github.com/asherikov/shoggoth} [docker]:
+            Self-hosted agentic development multitool intended for personal use
+    \end{itemize}
+
+\subsection{Math and control}
+    \begin{itemize}
+        \item \cvurl{https}{github.com/asherikov/qpmad} [C++]: High-performance
+            quadratic programming solver based on Goldfarb-Idnani algorithm
+        \item \cvurl{http}{sherikov.net/Projects/naowalk.html} [C++]: Walking
+            controller for Nao humanoid robot
+    \end{itemize}
+
+\subsection{Utility libraries}
+    \begin{itemize}
+        \item \cvurl{https}{github.com/asherikov/ariles} [C++]:
+            Reflection/serialization library supporting ROS parameters, YAML,
+            JSON, XML, and more
+
+        \item \cvurl{https}{github.com/asherikov/thread_supervisor} [C++]:
+            C++17 thread supervisor with automatic restart of failed or
+            finished threads
+
+        \item \cvurl{https}{github.com/asherikov/intrometry} [C++]: Telemetry
+            collection library for real-time data monitoring, similar to
+            \verb|pal_statistics| and \verb|data_tamer|.
+    \end{itemize}
+\end{cvindent}
 
 
 \vspace{0.15cm}
 \section{Skills}
-\begin{adjustwidth}{0.5cm}{0pt}
-%
-\subsection{Autonomous systems}
-\begin{adjustwidth}{0.5cm}{0pt}
-    \begin{tabularx}{\linewidth}{l X}
-        {\it Manipulator modeling and control}  & RBDL, URDF \\
-        {\it Simulators}                        & Microsoft AirSim, Gazebo, IsaacGym \\
-        {\it Visualization}                     & RViz, OpenSceneGraph \\
-        {\it Frameworks}                        & ROS, Nao SDK \\
-        {\it Motion planning}                   & OMPL \\
-        {\it Volumetric mapping}                & OpenVDB, OctoMap \\
-        {\it UAV controllers}                   & PX4, DJI, ArduPilot \\
-        {\it Messaging}                         & protobuf, mavlink, UAVCAN, CAN, mqtt \\
-        {\it Sensors}                           & lidars, GPS (RTK, RINEX), ADS-B, IMU \\
-        {\it Telemetry}                         & time-series databases, Grafana, PlotJuggler \\
-        {\it Hardware platforms}                & Raspberry Pi, NVIDIA Jetson Nano / Xavier\\
-        {\it Time synchronization}              & NTP, PTP \\
-        {\it Geodetic libraries}                & geopandas, pyproj, shapely, GeographicLib, OSMnx \\
-    \end{tabularx}
-\end{adjustwidth}
-
-\subsection{Research and development}
-\begin{adjustwidth}{0.5cm}{0pt}
-    \begin{tabularx}{\linewidth}{l X}
-        {\it Numerical optimization}        & quadratic programming (qpOASES, QuadProg++, ipopt, qpmad)
-                                                sequential quadratic programming, prioritized least squares (LexLS),
-                                                linear complementarity problems (siconos) \\
-        {\it Control}                       & model predictive control, inverse kinematics and dynamics \\
-        {\it Modeling}                      & rigid body modeling of robots, basics of friction and
-                                                collision \\
-        {\it Numerical environments / CAS}  & Octave/MATLAB, Maxima, ipython \\
-        {\it Numerical libraries}           & Eigen, numpy, pandas, scipy \\
-        {\it Reinforcement learning}        & PyTorch, optuna, tensorboard, ONNX \\
-        {\it Document preparation systems}  & \LaTeX \\
-        {\it Visualization}                 & matplotlib, graphviz, asymptote \\
-    \end{tabularx}
-\end{adjustwidth}
-
+\begin{cvindent}
 \subsection{Software development}
-\begin{adjustwidth}{0.5cm}{0pt}
-    \begin{tabularx}{\linewidth}{l X}
-        {\it C/C++}                         & STL, Boost, C++XX, POSIX, pthreads\\
-        {\it Parallel computations}         & CUDA/Thrust\\
-        {\it Compilers/compiler wrappers}   & clang, gcc, nvcc, ccache, scan-build \\
-        {\it Version control systems}       & git, SVN \\
-        {\it Debugging}                     & gdb, lldb, strace \\
-        {\it Static and dynamic checks}     & gcc/clang sanitizers, cppcheck, valgrind, clang-tidy, pylint, flake8 \\
-        {\it Profilers}                     & callgrind, gprof \\
-        {\it Testing}                       & googletest, googlemock, Boost UTF, ctest \\
-        {\it Build automation tools}        & catkin, colcon, cmake, make, autotools \\
-        {\it Documentation}                 & doxygen \\
-        {\it Packaging}                     & FreeBSD ports, dpkg, CloudSmith, conan, vcpkg, guix \\
-        {\it Continuous integration}        & GitLab, GitHub Actions, Jenkins, Travis \\
-        {\it Web-based SCM}                 & GitHub, GitLab, GForge, Gitea \\
-        {\it Task management}               & Jira, Trello
-    \end{tabularx}
-\end{adjustwidth}
 
-\subsection{Unix systems administration and networking}
-\begin{adjustwidth}{0.5cm}{0pt}
-    \begin{tabularx}{\linewidth}{l X}
-        {\it Operating systems}             & FreeBSD, Ubuntu\\
-        {\it Isolation/emulation}           & docker, qemu, systemd-nspawn, VirtualBox\\
-        {\it Service management}            & systemd, dinit\\
-        {\it Computer networks}             & TCP/IP, VLAN, DHCP, DNS, SMTP, routing, switching\\
-        {\it Other}                         & sh, bash, CLI utilities (xargs, sed, grep, screen, ...)
-    \end{tabularx}
-\end{adjustwidth}
+\begin{cvdescription}
+    \item[C++] \leavevmode
+        \begin{description}
+            \item[Standards and libraries:]  C++11/14/17/20, STL, Boost, POSIX
+            \item[Parallel computations:]    multithreading (pthreads), GPU (CUDA/Thrust)
+            \item[Compilation:]              clang, gcc, nvcc, cross-compilation, emulated compilation
+            \item[Debugging:]                gdb, lldb, strace
+            \item[Performance optimization:] callgrind, gprof
+            \item[Testing:]                  googletest, googlemock, Boost UTF, ctest
+        \end{description}
 
-\subsection{Languages}
-\begin{adjustwidth}{0.5cm}{0pt}
-    Russian (native), English (fluent)
-\end{adjustwidth}
-\end{adjustwidth}
+    \item[Other languages] \leavevmode
+        \begin{description}
+            \item[sh/bash:]       various automation scripts
+            \item[python:]        general scripting, reinforcement learning, numerical computations, data processing
+            \item[Octave/MATLAB:] numerical computations, scientific computing
+        \end{description}
+
+    \item[Source code, build, packaging] \leavevmode
+        \begin{description}
+            \item[Version control systems:] git, SVN
+            \item[Web-based SCM:]           GitHub, GitLab, Gitea, BitBucket
+            \item[Build optimization:]      ccache
+            \item[Build automation:]        catkin, colcon, cmake, make, autotools
+            \item[Packaging:]               FreeBSD ports, debian/apt, fpm, CloudSmith, conan, vcpkg, pypi
+        \end{description}
+
+    \item[Agentic (AI-assisted) coding] \leavevmode
+        \begin{description}
+            \item[Environments:]     Qwen-Code, OpenCode
+            \item[Concepts:]         MCP, skills, memory
+            \item[Model management:] Ollama (self-hosted and cloud)
+        \end{description}
+
+    \item[Software quality] \leavevmode
+        \begin{description}
+            \item[Continuous integration:] GitLab, GitHub/Gitea Actions, Jenkins, Travis
+            \item[Static analysis:]        cppcheck, clang-tidy, scan-build, pylint, flake8
+            \item[Dynamic analysis:]       gcc/clang sanitizers (address, undefined, thread), valgrind
+            \item[Documentation:]          doxygen, Confluence, markdown, pandoc, \LaTeX, GitLab/GitHub/Gitea pages
+        \end{description}
+
+    \item[Process] \leavevmode
+        \begin{description}
+            \item[Architecture:]    system, interface, and protocol design, UML
+            \item[Source code:]     maintenance and evolution of legacy code, dependency migration
+            \item[Methodologies:]   Agile, Scrum, Kanban, Git workflows (branching, merge requests, reviews)
+            \item[Task management:] Jira, Trello, Redmine
+            \item[Leadership:]      mentorship, planning, estimation, problem solving, project management
+        \end{description}
+\end{cvdescription}
+
+\subsection{Unix systems and networking}
+\begin{cvdescription}
+    \item[Operating systems:]          FreeBSD, Ubuntu, Alpine Linux
+    \item[Containerization/emulation:] docker, docker-compose, qemu, systemd-nspawn, VirtualBox, proot, chroot
+    \item[Service management:]         systemd, dinit, OpenRC
+    \item[Computer networks:]          TCP/IP, VLAN, routing, switching
+    \item[Network services:]           DHCP (dnsmasq), DNS (unbound), SMTP, VPN (OpenVPN), ssh, web (nginx)
+    \item[Network utilities:]          ip/ifconfig, ss/netstat, wireshark
+    \item[Time synchronization:]       NTP, PTP
+    \item[CLI:]                        xargs, sed, grep, screen/tmux, jq, vim, ...
+\end{cvdescription}
+
+\subsection{Robotics and autonomous systems}
+\begin{cvdescription}
+    \item[UAV] \leavevmode
+        \begin{description}
+            \item[Flight controllers:]   PX4, DJI, ArduPilot
+            \item[Messaging:]            mavlink, UAVCAN, OpenCyphal, mavros, Micro-XRCE-DDS-Agent
+            \item[Aircraft tracking:]    ADS-B
+            \item[Ground control (GCS):] QGroundControl
+        \end{description}
+
+    \item[Simulation] \leavevmode
+        \begin{description}
+            \item[Simulators:]    Microsoft AirSim, Gazebo, IsaacGym
+            \item[Visualization:] RViz, OpenSceneGraph
+            \item[Validation:]    CI automated, headless Software-In-The-Loop (SITL) testing
+        \end{description}
+
+    \item[Volumetric mapping] \leavevmode
+        \begin{description}
+            \item[Sensors:]      lidars (Ouster, Livox), altimeters, radars
+            \item[Data formats:] point clouds (PCL), range images
+            \item[Mapping:]      OpenVDB, OctoMap, Bonxai
+        \end{description}
+
+    \item[Navigation] \leavevmode
+        \begin{description}
+            \item[Sensors:]                    GPS (ublox, SwiftNav Piksi), INS (VectorNav)
+            \item[High-precision positioning:] RTK, NTRIP, base-rover setup
+            \item[Geodetic libraries:]         geopandas, pyproj, shapely, GeographicLib, OSMnx
+        \end{description}
+
+    \item[Other] \leavevmode
+        \begin{description}
+            \item[Frameworks:]           ROS, ROS2, Nao SDK
+            \item[Motion planning:]      OMPL
+            \item[Behavior:]             behavior trees, state machines
+            \item[Model representation:] URDF, SDF
+            \item[Messaging:]            protobuf, CAN, mqtt
+            \item[Telemetry:]            time-series databases, MCAP, Grafana, PlotJuggler
+            \item[Hardware platforms:]   Raspberry Pi, NVIDIA Jetson, Pixhawk
+        \end{description}
+\end{cvdescription}
+
+
+\subsection{Math and control}
+\begin{cvdescription}
+    \item[Numerical optimization:] quadratic programming (qpOASES,
+        QuadProg++, ipopt, qpmad) sequential quadratic programming,
+        prioritized least squares (LexLS), linear complementarity problems
+        (siconos)
+    \item[Modeling and control:] rigid body modeling of robots (RBDL),
+        basics of friction and collision, inverse kinematics and dynamics,
+        model predictive control
+    \item[Numerical libraries:]          Eigen, numpy, pandas, scipy
+    \item[Reinforcement learning:]       PyTorch, optuna, tensorboard, IsaacGym, ONNX
+    \item[Numerical environments / CAS:] Octave/MATLAB, Maxima, ipython
+    \item[Visualization:]                matplotlib, graphviz, asymptote
+\end{cvdescription}
+
+
+\subsection{Other}
+\begin{cvdescription}
+    \item[Languages:] Russian (native), English (fluent)
+    \item[Driving licence:] category LMV (UAE), B (Russia).
+\end{cvdescription}
+\end{cvindent}
 
 
 \vspace{0.15cm}
 \section{Academic activities}
 \begin{itemize}
-    \item[$\circ$] Reviewer for IEEE T-RO, ICRA, IROS, Humanoids.
-    \item[$\circ$] Google Scholar page: \url{https://scholar.google.fr/citations?user=yVOvGd0AAAAJ&hl=en}.
+    \item Reviewer for IEEE T-RO, ICRA, IROS, Humanoids.
+    \item Google Scholar page: \cvurl{https}{scholar.google.fr/citations?user=yVOvGd0AAAAJ&hl=en} (over 600 citations).
 \end{itemize}
 
 \subsection{\hspace{0.5cm}Publications}
-\nocite{*}
-%    \begin{minipage}{\linewidth}
-    \begin{tcolorbox}[
-            breakable,
-            skin=enhanced,
-            lines before break=0,
-            after={},
-            %before={},
-            colframe=white,
-            colback=white,
-            coltitle=white,
-            colbacktitle=white,
-            width=\linewidth,
-            %toprule=0.01cm,
-            bottomrule=0cm,
-            leftrule=0cm,
-            rightrule=0cm,
-            titlerule=0cm,
-            arc=0.0cm,
-            boxsep=0cm,
-            left=1.0cm,
-            right=0.0cm,
-            toptitle=0.00cm,
-            bottom=0.00cm,
-            top=0.00cm,
-        ]
-        \printbibliography[heading=none]
-    \end{tcolorbox}
-%    \end{minipage}
-%\end{adjustwidth}
-
-% \vspace{0.15cm}
-%\section{References}
-%\begin{itemize}
-%    \item
-%\end{itemize}
+    \nocite{*}
+    \printbibliography[heading=none]
 \end{document}
